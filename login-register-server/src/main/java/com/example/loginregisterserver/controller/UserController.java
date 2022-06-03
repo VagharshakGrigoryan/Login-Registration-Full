@@ -4,8 +4,6 @@ import com.example.loginregisterserver.message.request.LoginForm;
 import com.example.loginregisterserver.message.request.SignUpForm;
 import com.example.loginregisterserver.message.response.JwtResponse;
 import com.example.loginregisterserver.message.response.ResponseMessage;
-import com.example.loginregisterserver.model.Role;
-import com.example.loginregisterserver.model.RoleName;
 import com.example.loginregisterserver.model.User;
 import com.example.loginregisterserver.repository.RoleRepository;
 import com.example.loginregisterserver.repository.UserRepository;
@@ -21,8 +19,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.HashSet;
-import java.util.Set;
+
 
 @CrossOrigin( origins = "http://localhost:4200" )
 @RestController
@@ -81,30 +78,6 @@ public class UserController {
 		User user = new User(signUpRequest.getName(), signUpRequest.getUsername(), signUpRequest.getEmail(),
 				encoder.encode(signUpRequest.getPassword()));
 
-		Set<String> strRoles = signUpRequest.getRole();
-		Set<Role> roles = new HashSet<>();
-
-		strRoles.forEach(role -> {
-			switch (role) {
-				case "admin" -> {
-					Role adminRole = roleRepository.findByName(RoleName.ROLE_ADMIN)
-							.orElseThrow(() -> new RuntimeException("Fail! -> Cause: User Role not find."));
-					roles.add(adminRole);
-				}
-				case "pm" -> {
-					Role pmRole = roleRepository.findByName(RoleName.ROLE_PM)
-							.orElseThrow(() -> new RuntimeException("Fail! -> Cause: User Role not find."));
-					roles.add(pmRole);
-				}
-				default -> {
-					Role userRole = roleRepository.findByName(RoleName.ROLE_USER)
-							.orElseThrow(() -> new RuntimeException("Fail! -> Cause: User Role not find."));
-					roles.add(userRole);
-				}
-			}
-		});
-
-		user.setRoles(roles);
 		userRepository.save(user);
 
 		return new ResponseEntity<>(new ResponseMessage("User registered successfully!"), HttpStatus.OK);
