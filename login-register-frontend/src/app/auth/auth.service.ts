@@ -15,8 +15,8 @@ const httpOptions = {
 })
 export class AuthService {
 
-  private loginUrl = 'http://localhost:8081/api/auth/signin';
-  private signupUrl = 'http://localhost:8081/api/auth/signup';
+  private loginUrl = 'http://localhost:8081/user/signin';
+  private signupUrl = 'http://localhost:8081/user/signup';
 
   constructor(private http: HttpClient) {
   }

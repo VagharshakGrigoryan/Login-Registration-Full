@@ -26,8 +26,8 @@ import java.util.Set;
 
 @CrossOrigin( origins = "http://localhost:4200" )
 @RestController
-@RequestMapping("/api/auth")
-public class AuthRestAPIs {
+@RequestMapping("/user")
+public class UserController {
 
 	final
 	AuthenticationManager authenticationManager;
@@ -44,7 +44,7 @@ public class AuthRestAPIs {
 	final
 	JwtProvider jwtProvider;
 
-	public AuthRestAPIs(AuthenticationManager authenticationManager, UserRepository userRepository, RoleRepository roleRepository, PasswordEncoder encoder, JwtProvider jwtProvider) {
+	public UserController(AuthenticationManager authenticationManager, UserRepository userRepository, RoleRepository roleRepository, PasswordEncoder encoder, JwtProvider jwtProvider) {
 		this.authenticationManager = authenticationManager;
 		this.userRepository = userRepository;
 		this.roleRepository = roleRepository;
