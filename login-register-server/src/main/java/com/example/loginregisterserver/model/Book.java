@@ -16,7 +16,7 @@ public class Book {
     @Column( name = "language" )
     private String language;
 
-    @Column( name = "description" )
+    @Column( name = "description",length = 5000)
     private String description;
 
     @Column( name = "price" )
