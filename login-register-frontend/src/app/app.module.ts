@@ -40,7 +40,7 @@ import {UpdateAuthorComponent} from "./author/update-author/update-author.compon
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]

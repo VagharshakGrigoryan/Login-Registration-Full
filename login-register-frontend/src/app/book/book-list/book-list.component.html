@@ -15,14 +15,20 @@
   </thead>
   <tbody>
   <tr *ngFor="let book of books">
+
     <td> {{ book.title }} </td>
     <td> {{ book.language }} </td>
-    <td> {{ book.price }} </td>
+    <td> {{ book.price }}  դրամ </td>
     <td>
       <button (click)="updateBook(book['id'])" class="btn btn-info"> Update</button>
       <button (click)="bookDetails(book['id'])" class="btn btn-info" style="margin-left: 10px"> View</button>
       <button (click)="deleteBook(book['id'])" class="btn btn-danger" style="margin-left: 10px"> Delete</button>
+
+    </td>
   </tr>
   </tbody>
+
+
 </table>
+
 </body>
