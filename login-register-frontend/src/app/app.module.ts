@@ -8,7 +8,6 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { UserComponent } from './user/user.component';
 import { RegisterComponent } from './register/register.component';
-import { HomeComponent } from './home/home.component';
 
 
 import { httpInterceptorProviders } from './auth/auth-interceptor';
@@ -27,7 +26,6 @@ import {UpdateAuthorComponent} from "./author/update-author/update-author.compon
     LoginComponent,
     UserComponent,
     RegisterComponent,
-    HomeComponent,
     BookListComponent,
     CreateBookComponent,
     UpdateBookComponent,
