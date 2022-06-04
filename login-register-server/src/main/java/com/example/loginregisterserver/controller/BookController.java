@@ -3,7 +3,6 @@ package com.example.loginregisterserver.controller;
 import com.example.loginregisterserver.exception.ResourceNotFoundException;
 import com.example.loginregisterserver.model.Book;
 import com.example.loginregisterserver.repository.BookRepository;
-import com.example.loginregisterserver.service.BookService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,7 +18,7 @@ public class BookController {
 
     private final BookRepository bookRepository;
 
-    public BookController(BookRepository bookRepository, BookService bookService) {
+    public BookController(BookRepository bookRepository) {
         this.bookRepository = bookRepository;
     }
 
