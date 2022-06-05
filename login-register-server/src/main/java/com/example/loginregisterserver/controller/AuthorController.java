@@ -1,17 +1,14 @@
 package com.example.loginregisterserver.controller;
 
-import com.example.loginregisterserver.controller.service.AuthorService;
+import com.example.loginregisterserver.service.AuthorService;
 import com.example.loginregisterserver.exception.ResourceNotFoundException;
 import com.example.loginregisterserver.model.Author;
-import com.example.loginregisterserver.model.Book;
 import com.example.loginregisterserver.repository.AuthorRepository;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import static org.springframework.http.ResponseEntity.ok;
 

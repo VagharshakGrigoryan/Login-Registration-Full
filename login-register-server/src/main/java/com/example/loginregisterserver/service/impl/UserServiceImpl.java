@@ -1,6 +1,6 @@
-package com.example.loginregisterserver.controller.service.impl;
+package com.example.loginregisterserver.service.impl;
 
-import com.example.loginregisterserver.controller.service.UserService;
+import com.example.loginregisterserver.service.UserService;
 import com.example.loginregisterserver.message.request.LoginForm;
 import com.example.loginregisterserver.message.request.SignUpForm;
 import com.example.loginregisterserver.message.response.JwtResponse;

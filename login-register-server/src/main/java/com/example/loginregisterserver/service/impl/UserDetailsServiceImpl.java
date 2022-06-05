@@ -1,4 +1,4 @@
-package com.example.loginregisterserver.controller.service.impl;
+package com.example.loginregisterserver.service.impl;
 
 import com.example.loginregisterserver.model.User;
 import com.example.loginregisterserver.repository.UserRepository;

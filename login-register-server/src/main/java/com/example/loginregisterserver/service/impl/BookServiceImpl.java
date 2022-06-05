@@ -1,6 +1,6 @@
-package com.example.loginregisterserver.controller.service.impl;
+package com.example.loginregisterserver.service.impl;
 
-import com.example.loginregisterserver.controller.service.BookService;
+import com.example.loginregisterserver.service.BookService;
 import com.example.loginregisterserver.exception.ResourceNotFoundException;
 import com.example.loginregisterserver.model.Book;
 import com.example.loginregisterserver.repository.BookRepository;

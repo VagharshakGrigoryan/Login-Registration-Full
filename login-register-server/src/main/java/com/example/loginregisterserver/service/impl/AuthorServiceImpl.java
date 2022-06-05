@@ -1,6 +1,6 @@
-package com.example.loginregisterserver.controller.service.impl;
+package com.example.loginregisterserver.service.impl;
 
-import com.example.loginregisterserver.controller.service.AuthorService;
+import com.example.loginregisterserver.service.AuthorService;
 import com.example.loginregisterserver.exception.ResourceNotFoundException;
 import com.example.loginregisterserver.model.Author;
 import com.example.loginregisterserver.repository.AuthorRepository;

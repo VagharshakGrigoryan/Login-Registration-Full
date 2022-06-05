@@ -1,6 +1,6 @@
 package com.example.loginregisterserver.controller;
 
-import com.example.loginregisterserver.controller.service.BookService;
+import com.example.loginregisterserver.service.BookService;
 import com.example.loginregisterserver.model.Book;
 import com.example.loginregisterserver.repository.BookRepository;
 import org.springframework.http.ResponseEntity;

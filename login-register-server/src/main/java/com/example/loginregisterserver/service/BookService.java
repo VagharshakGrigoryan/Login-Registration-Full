@@ -1,4 +1,4 @@
-package com.example.loginregisterserver.controller.service;
+package com.example.loginregisterserver.service;
 
 import com.example.loginregisterserver.model.Book;
 import org.springframework.stereotype.Service;

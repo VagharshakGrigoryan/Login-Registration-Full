@@ -1,6 +1,6 @@
 package com.example.loginregisterserver.security.jwt;
 
-import com.example.loginregisterserver.controller.service.impl.UserPrinciple;
+import com.example.loginregisterserver.service.impl.UserPrinciple;
 import io.jsonwebtoken.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
