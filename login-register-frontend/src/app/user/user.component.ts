@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../services/user.service';
-import {TokenStorageService} from "../auth/token-storage.service";
+import {TokenStorageService} from "../services/auth/token-storage.service";
 
 @Component({
   selector: 'app-user',

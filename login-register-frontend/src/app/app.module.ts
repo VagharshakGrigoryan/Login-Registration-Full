@@ -10,7 +10,7 @@ import { UserComponent } from './user/user.component';
 import { RegisterComponent } from './register/register.component';
 
 
-import { httpInterceptorProviders } from './auth/auth-interceptor';
+import { httpInterceptorProviders } from './services/auth/auth-interceptor';
 import {BookListComponent} from "./book/book-list/book-list.component";
 import {CreateBookComponent} from "./book/create-book/create-book.component";
 import {UpdateBookComponent} from "./book/update-book/update-book.component";
