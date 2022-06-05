@@ -1,7 +1,9 @@
 package com.example.loginregisterserver.controller;
 
+import com.example.loginregisterserver.controller.service.AuthorService;
 import com.example.loginregisterserver.exception.ResourceNotFoundException;
 import com.example.loginregisterserver.model.Author;
+import com.example.loginregisterserver.model.Book;
 import com.example.loginregisterserver.repository.AuthorRepository;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -10,6 +12,8 @@ import javax.validation.Valid;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import static org.springframework.http.ResponseEntity.ok;
 
 /**
  * @author Vagharhak Grigoryan
@@ -22,9 +26,11 @@ import java.util.Map;
 public class AuthorController {
 
     private final AuthorRepository authorRepository;
+    private final AuthorService authorService;
 
-    public AuthorController(AuthorRepository userRepository) {
+    public AuthorController(AuthorRepository userRepository, AuthorService authorService) {
         this.authorRepository = userRepository;
+        this.authorService = authorService;
     }
 
     @GetMapping
@@ -44,24 +50,14 @@ public class AuthorController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Author> updateAuthor(
-            @PathVariable(value = "id") Long authorId, @Valid @RequestBody Author authorDetail)
-            throws ResourceNotFoundException {
-
-        Author author = authorRepository.findById(authorId).orElseThrow(() -> new ResourceNotFoundException("Author not found on :: " + authorId));
-        author.setFirstName(authorDetail.getFirstName());
-        author.setLastName(authorDetail.getLastName());
-        author.setBirthDate(authorDetail.getBirthDate());
-        final Author updateAuthor = authorRepository.save(author);
-        return ResponseEntity.ok(updateAuthor);
+    public ResponseEntity<Author> updateAuthor(@PathVariable(value = "id") Long authorId, @Valid @RequestBody Author authorDetail) throws ResourceNotFoundException {
+        Author updateAuthor = authorService.updateAuthor(authorDetail, authorId);
+        return ok(updateAuthor);
     }
 
     @DeleteMapping("/{id}")
-    public Map<String, Boolean> deleteAuthor(@PathVariable(value = "id") Long authorId) throws Exception {
-        Author author = authorRepository.findById(authorId).orElseThrow(() -> new ResourceNotFoundException("Author not found on :: " + authorId));
-        authorRepository.delete(author);
-        Map<String, Boolean> response = new HashMap<>();
-        response.put("deleted", Boolean.TRUE);
-        return response;
+    public ResponseEntity<Author> deleteAuthor(@PathVariable(value = "id") Long authorId) {
+        Author author = authorService.deleteAuthor(authorId);
+        return ResponseEntity.ok(author);
     }
 }

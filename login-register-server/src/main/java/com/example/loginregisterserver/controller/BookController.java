@@ -1,15 +1,18 @@
 package com.example.loginregisterserver.controller;
 
-import com.example.loginregisterserver.exception.ResourceNotFoundException;
+import com.example.loginregisterserver.controller.service.BookService;
 import com.example.loginregisterserver.model.Book;
 import com.example.loginregisterserver.repository.BookRepository;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+import java.util.Optional;
 
+import static org.springframework.http.ResponseEntity.*;
+/**
+ * @author Vagharhak Grigoryan
+ */
 
 @CrossOrigin( origins = "http://localhost:4200" )
 @RestController
@@ -17,9 +20,11 @@ import java.util.Map;
 public class BookController {
 
     private final BookRepository bookRepository;
+    private final BookService bookService;
 
-    public BookController(BookRepository bookRepository) {
+    public BookController(BookRepository bookRepository, BookService bookService) {
         this.bookRepository = bookRepository;
+        this.bookService = bookService;
     }
 
     @GetMapping
@@ -33,35 +38,19 @@ public class BookController {
     }
 
     @GetMapping( "/{id}" )
-    public ResponseEntity<Book> getBookById(@PathVariable Long id) {
-        Book book = bookRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Book not exist with id :" + id));
-        return ResponseEntity.ok(book);
+    public ResponseEntity<Optional<Book>> getBookById(@PathVariable Long id) {
+        return ok(bookService.getBookById(id));
     }
-
 
     @PutMapping( "/{id}" )
     public ResponseEntity<Book> updateBook(@PathVariable Long id, @RequestBody Book bookDetails) {
-        Book book = bookRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Book not exist with id :" + id));
-
-        book.setTitle(bookDetails.getTitle());
-        book.setLanguage(bookDetails.getLanguage());
-        book.setPrice(bookDetails.getPrice());
-        book.setDescription(bookDetails.getDescription());
-        Book updateBook = bookRepository.save(book);
-        return ResponseEntity.ok(updateBook);
+        Book updateBook = bookService.updateBook(bookDetails, id);
+        return ok(updateBook);
     }
 
     @DeleteMapping( "/{id}" )
-    public ResponseEntity<Map<String, Boolean>> deleteBook(@PathVariable Long id) {
-        Book book = bookRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Book not exist with id :" + id));
-
-        bookRepository.delete(book);
-        Map<String, Boolean> response = new HashMap<>();
-        response.put("deleted", Boolean.TRUE);
-        return ResponseEntity.ok(response);
-
+    public ResponseEntity<Book> deleteBook(@PathVariable Long id) {
+        Book book = bookService.deleteBooks(id);
+        return ResponseEntity.ok(book);
     }
-
 }
