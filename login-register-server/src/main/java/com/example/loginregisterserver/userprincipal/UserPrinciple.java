@@ -1,4 +1,4 @@
-package com.example.loginregisterserver.service.impl;
+package com.example.loginregisterserver.userprincipal;
 
 import com.example.loginregisterserver.model.User;
 import com.fasterxml.jackson.annotation.JsonIgnore;

@@ -2,6 +2,7 @@ package com.example.loginregisterserver.service.impl;
 
 import com.example.loginregisterserver.model.User;
 import com.example.loginregisterserver.repository.UserRepository;
+import com.example.loginregisterserver.userprincipal.UserPrinciple;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
