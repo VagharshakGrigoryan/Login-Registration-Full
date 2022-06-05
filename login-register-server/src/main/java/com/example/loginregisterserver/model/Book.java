@@ -18,7 +18,7 @@ public class Book {
     @Column( name = "language" )
     private String language;
 
-    @Column( name = "description",length = 5000)
+    @Column( name = "description", length = 5000 )
     private String description;
 
     @Column( name = "price" )
@@ -39,7 +39,7 @@ public class Book {
     public Book() {
     }
 
-    public Book(long id, String title, String language, Double price, Author author,String description) {
+    public Book(long id, String title, String language, Double price, Author author, String description) {
         this.id = id;
         this.title = title;
         this.language = language;
