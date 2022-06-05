@@ -2,7 +2,7 @@ package com.example.loginregisterserver.security;
 
 import com.example.loginregisterserver.security.jwt.JwtAuthEntryPoint;
 import com.example.loginregisterserver.security.jwt.JwtAuthTokenFilter;
-import com.example.loginregisterserver.service.impl.UserDetailsServiceImpl;
+import com.example.loginregisterserver.userprincipal.UserDetailsServiceImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;

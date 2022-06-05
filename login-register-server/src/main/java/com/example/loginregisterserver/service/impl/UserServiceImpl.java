@@ -1,4 +1,4 @@
-package com.example.loginregisterserver.userprincipal;
+package com.example.loginregisterserver.service.impl;
 
 import com.example.loginregisterserver.service.UserService;
 import com.example.loginregisterserver.message.request.LoginForm;
