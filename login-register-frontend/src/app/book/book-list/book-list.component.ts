@@ -10,8 +10,8 @@ import {BookService} from "../../services/bookService/book.service";
 })
 export class BookListComponent implements OnInit {
 
-  books!: Book[];
-  author!:Author;
+  books: Book[];
+  author:Author;
 
   constructor(private bookService: BookService,
     private router: Router

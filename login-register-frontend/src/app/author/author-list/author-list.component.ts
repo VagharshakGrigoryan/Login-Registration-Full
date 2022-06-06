@@ -10,7 +10,7 @@ import {AuthorService} from "../../services/authorService/author.service";
 })
 export class AuthorListComponent implements OnInit {
 
-  authors!: Author[];
+  authors: Author[];
 
 
   constructor(private authorService: AuthorService,

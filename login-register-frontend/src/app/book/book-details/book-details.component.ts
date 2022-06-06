@@ -10,8 +10,8 @@ import {Book} from "../../model/book";
 })
 export class BookDetailsComponent implements OnInit {
 
-  id!: number
-  book!: Book
+  id: number
+  book: Book
 
   constructor(private route: ActivatedRoute, private bookService: BookService) {
   }

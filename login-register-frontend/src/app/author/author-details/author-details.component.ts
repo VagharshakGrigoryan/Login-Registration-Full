@@ -10,8 +10,8 @@ import {Author} from "../../model/Author";
 })
 export class AuthorDetailsComponent implements OnInit {
 
-  id!: number
-  author!: Author
+  id: number
+  author: Author
 
   constructor(private route: ActivatedRoute, private authorService: AuthorService) {
   }

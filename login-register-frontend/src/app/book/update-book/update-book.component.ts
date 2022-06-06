@@ -10,7 +10,7 @@ import {BookService} from "../../services/bookService/book.service";
 })
 export class UpdateBookComponent implements OnInit {
 
-  id!: number;
+  id: number;
   book: Book = new Book();
   constructor(private bookService: BookService,
     private route: ActivatedRoute,

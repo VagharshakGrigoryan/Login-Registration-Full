@@ -49,7 +49,7 @@ public class AuthorController {
     @PutMapping("/{id}")
     public ResponseEntity<Author> updateAuthor(@PathVariable(value = "id") Long authorId, @Valid @RequestBody Author authorDetail) throws ResourceNotFoundException {
         Author updateAuthor = authorService.updateAuthor(authorDetail, authorId);
-        return ok(updateAuthor);
+        return ResponseEntity.ok(updateAuthor);
     }
 
     @DeleteMapping("/{id}")

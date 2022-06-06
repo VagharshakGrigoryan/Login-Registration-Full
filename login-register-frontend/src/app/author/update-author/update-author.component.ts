@@ -10,7 +10,7 @@ import {Author} from "../../model/Author";
 })
 export class UpdateAuthorComponent implements OnInit {
 
-  id!: number;
+  id: number;
   author: Author = new Author();
   constructor(private authorService: AuthorService,
               private route: ActivatedRoute,
